@@ -1,3 +1,9 @@
+import AmazeMania1 from "../assets/amaze_mania-9.jpg";
+import AmazeMania2 from "../assets/amaze-maina-5.jpg";
+import AmazeMania3 from "../assets/amaze-maina-7.jpg";
+import AmazeMania4 from "../assets/amaze_mania-8.jpg";
+import AmazeMania5 from "../assets/amaze-maina-6.jpg";
+
 export const navbarSubCategories = [
   {
     _id: "fresh",
@@ -107,5 +113,33 @@ export const storeFooterLinks = [
         title: "RDS",
       },
     ],
+  },
+];
+
+export const homePageSliderItems = [
+  {
+    _id: "amaze_mania_1",
+    img: AmazeMania1,
+    title: "Amaze Mania 1",
+  },
+  {
+    _id: "amaze_mania_2",
+    img: AmazeMania2,
+    title: "Amaze Mania 2",
+  },
+  {
+    _id: "amaze_mania_3",
+    img: AmazeMania3,
+    title: "Amaze Mania 3",
+  },
+  {
+    _id: "amaze_mania_4",
+    img: AmazeMania4,
+    title: "Amaze Mania 4",
+  },
+  {
+    _id: "amaze_mania_5",
+    img: AmazeMania5,
+    title: "Amaze Mania 5",
   },
 ];

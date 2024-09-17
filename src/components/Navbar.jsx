@@ -7,10 +7,10 @@ import Sidebar from "./Sidebar";
 
 const Navbar = () => {
   return (
-    <nav className="md:h-40 sm:h-32 h-48">
+    <nav className="lg:h-40 ">
       {/* Top Portion */}
-      <div className="w-full bg-primary h-[70%] flex flex-col justify-center pb-3 sm:pb-0">
-        <div className="max-w-[1400px] w-full h-full m-auto flex items-center 2xl:p-0 pr-3">
+      <div className="w-full bg-primary h-[70%] flex flex-col justify-center pb-3 sm:px-2 sm:py-5 md:gap-0 gap-5">
+        <div className="max-w-[1400px] w-full h-full m-auto md:mt-0 mt-2 flex items-center 2xl:p-0 pr-3">
           {/* Left */}
           <div className="w-[25%]">
             <Link to="/">
