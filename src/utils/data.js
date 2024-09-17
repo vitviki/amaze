@@ -4,6 +4,13 @@ import AmazeMania3 from "../assets/amaze-maina-7.jpg";
 import AmazeMania4 from "../assets/amaze_mania-8.jpg";
 import AmazeMania5 from "../assets/amaze-maina-6.jpg";
 
+import accessory1 from "../assets/accessory_1.png";
+import accessory2 from "../assets/accessory_2.png";
+import accessory3 from "../assets/accessory_3.png";
+import accessory4 from "../assets/accessory_4.png";
+
+import sunglasses from "../assets/sunglasses1.png";
+
 export const navbarSubCategories = [
   {
     _id: "fresh",
@@ -141,5 +148,98 @@ export const homePageSliderItems = [
     _id: "amaze_mania_5",
     img: AmazeMania5,
     title: "Amaze Mania 5",
+  },
+];
+
+export const sampleCardItems = [
+  {
+    _id: "accessories",
+    title: "Get Best Accessories",
+    subTitle: "See more",
+    images: [
+      {
+        _id: "computer",
+        img: accessory1,
+        title: "Computers & Laptops",
+      },
+      {
+        _id: "headphones",
+        img: accessory2,
+        title: "Headphones",
+      },
+      {
+        _id: "camera",
+        img: accessory3,
+        title: "Cameras",
+      },
+      {
+        _id: "smartphone",
+        img: accessory4,
+        title: "Phones",
+      },
+    ],
+  },
+  {
+    _id: "sunglasses",
+    title: "Sunglasses",
+    images: [sunglasses],
+    subTitle: "Shop now",
+  },
+  {
+    _id: "accessories2",
+    title: "Get Best Accessories",
+    subTitle: "See more",
+    images: [
+      {
+        _id: "computer1",
+        img: accessory1,
+        title: "Computers & Laptops",
+      },
+      {
+        _id: "headphones1",
+        img: accessory2,
+        title: "Headphones",
+      },
+      {
+        _id: "camera1",
+        img: accessory3,
+        title: "Cameras",
+      },
+      {
+        _id: "smartphone1",
+        img: accessory4,
+        title: "Phones",
+      },
+    ],
+  },
+  {
+    _id: "sunglasses2",
+    title: "Sunglasses",
+    images: [sunglasses],
+    subTitle: "Shop now",
+  },
+  {
+    _id: "sunglasses3",
+    title: "Sunglasses",
+    images: [sunglasses],
+    subTitle: "Shop now",
+  },
+  {
+    _id: "sunglasses4",
+    title: "Sunglasses",
+    images: [sunglasses],
+    subTitle: "Shop now",
+  },
+  {
+    _id: "sunglasses5",
+    title: "Sunglasses",
+    images: [sunglasses],
+    subTitle: "Shop now",
+  },
+  {
+    _id: "sunglasses6",
+    title: "Sunglasses",
+    images: [sunglasses],
+    subTitle: "Shop now",
   },
 ];

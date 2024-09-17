@@ -10,12 +10,12 @@ const Carousel = () => {
       setCurrentSlide((prev) =>
         prev === homePageSliderItems.length - 1 ? 0 : prev + 1
       );
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="h-max  overflow-hidden">
+    <div className="h-max overflow-hidden -z-10">
       <div
         className="w-max lg:h-[450px] flex transition-all ease-in-out duration-1000"
         style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
