@@ -13,6 +13,9 @@ import sunglasses from "../assets/sunglasses1.png";
 
 import dealSample from "../assets/dealSample.jpg";
 import sampleBestSeller from "../assets/sampleBestSeller.jpg";
+import watches from "../assets/watches.png";
+import shoes from "../assets/shoes.png";
+import gym from "../assets/gym.png";
 
 export const navbarSubCategories = [
   {
@@ -391,5 +394,33 @@ export const sampleBestSellers = [
       "SJeware 12 Pairs Solid Cotton Ankle Length Socks for Men & Women, Multicolor, Pack of 12, Free Size",
     price: "₹198.00",
     photo: sampleBestSeller,
+  },
+];
+
+export const sampleMoreCategories = [
+  {
+    _id: "shoes",
+    title: "Upto 50% off on shoes",
+    images: [shoes],
+    subTitle: "Shop now",
+  },
+
+  {
+    _id: "sunglasses9",
+    title: "Sunglasses",
+    images: [sunglasses],
+    subTitle: "Shop now",
+  },
+  {
+    _id: "watches",
+    title: "Get best deals on wrist watches",
+    images: [watches],
+    subTitle: "Shop now",
+  },
+  {
+    _id: "gym",
+    title: "Upto 30% off on gym equipments",
+    images: [gym],
+    subTitle: "Shop now",
   },
 ];

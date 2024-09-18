@@ -1,6 +1,10 @@
 import { Carousel, Deals, ProductCard } from "../components";
-import { sampleCardItems } from "../utils/data";
-import { sampleBestSellers, sampleDeals } from "../utils/data";
+import {
+  sampleBestSellers,
+  sampleDeals,
+  sampleCardItems,
+  sampleMoreCategories,
+} from "../utils/data";
 
 const Home = () => {
   return (
@@ -30,8 +34,23 @@ const Home = () => {
         {/* Best seller in apparels */}
         <Deals
           data={sampleBestSellers}
-          title={"Best sellers in Clothing & Accessory"}
+          title={"Best sellers in Clothing & Accessories"}
         />
+      </div>
+
+      {/* More categories */}
+      <div className="grid xl:grid-cols-4 md:grid-cols-3 sm: grid-cols-2 gap-x-4 gap-y-5 lg:-top-32">
+        {sampleMoreCategories.map((item) => {
+          return (
+            <ProductCard
+              key={item._id}
+              title={item.title}
+              link="/"
+              images={item.images}
+              subTitle={item.subTitle}
+            />
+          );
+        })}
       </div>
     </div>
   );
