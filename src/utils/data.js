@@ -11,6 +11,8 @@ import accessory4 from "../assets/accessory_4.png";
 
 import sunglasses from "../assets/sunglasses1.png";
 
+import dealSample from "../assets/dealSample.jpg";
+
 export const navbarSubCategories = [
   {
     _id: "fresh",
@@ -218,28 +220,97 @@ export const sampleCardItems = [
     images: [sunglasses],
     subTitle: "Shop now",
   },
+  // {
+  //   _id: "sunglasses3",
+  //   title: "Sunglasses",
+  //   images: [sunglasses],
+  //   subTitle: "Shop now",
+  // },
+  // {
+  //   _id: "sunglasses4",
+  //   title: "Sunglasses",
+  //   images: [sunglasses],
+  //   subTitle: "Shop now",
+  // },
+  // {
+  //   _id: "sunglasses5",
+  //   title: "Sunglasses",
+  //   images: [sunglasses],
+  //   subTitle: "Shop now",
+  // },
+  // {
+  //   _id: "sunglasses6",
+  //   title: "Sunglasses",
+  //   images: [sunglasses],
+  //   subTitle: "Shop now",
+  // },
+];
+
+export const sampleDeals = [
   {
-    _id: "sunglasses3",
-    title: "Sunglasses",
-    images: [sunglasses],
-    subTitle: "Shop now",
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
   },
   {
-    _id: "sunglasses4",
-    title: "Sunglasses",
-    images: [sunglasses],
-    subTitle: "Shop now",
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
   },
   {
-    _id: "sunglasses5",
-    title: "Sunglasses",
-    images: [sunglasses],
-    subTitle: "Shop now",
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
   },
   {
-    _id: "sunglasses6",
-    title: "Sunglasses",
-    images: [sunglasses],
-    subTitle: "Shop now",
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
+  },
+  {
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
+  },
+  {
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
+  },
+  {
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
+  },
+  {
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
+  },
+  {
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
+  },
+  {
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
+  },
+  {
+    deal_id: "B0DDTXJ2MX",
+    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    deal_photo: dealSample,
+    deal_badge: "15% off",
   },
 ];
