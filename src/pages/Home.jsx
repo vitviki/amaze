@@ -36,21 +36,21 @@ const Home = () => {
           data={sampleBestSellers}
           title={"Best sellers in Clothing & Accessories"}
         />
-      </div>
 
-      {/* More categories */}
-      <div className="grid xl:grid-cols-4 md:grid-cols-3 sm: grid-cols-2 gap-x-4 gap-y-5 lg:-top-32">
-        {sampleMoreCategories.map((item) => {
-          return (
-            <ProductCard
-              key={item._id}
-              title={item.title}
-              link="/"
-              images={item.images}
-              subTitle={item.subTitle}
-            />
-          );
-        })}
+        {/* More categories */}
+        <div className="grid xl:grid-cols-4 md:grid-cols-3 sm: grid-cols-2 gap-x-4 gap-y-5">
+          {sampleMoreCategories.map((item) => {
+            return (
+              <ProductCard
+                key={item._id}
+                title={item.title}
+                link="/"
+                images={item.images}
+                subTitle={item.subTitle}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

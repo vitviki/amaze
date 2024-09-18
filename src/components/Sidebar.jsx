@@ -15,7 +15,7 @@ const Sidebar = () => {
         <div className="fixed z-10 bg-black bg-opacity-40 w-full h-screen inset-0 flex">
           <div className="lg:w-[25%] md:w-[40%] ms:w-[50%] w-[60%] bg-white h-full overflow-y-scroll flex flex-col gap-10">
             <Link
-              to="/sign-in"
+              to="/login"
               className="bg-secondary w-full flex items-center gap-4 justify-center text-xl text-white py-3"
             >
               <FaUser />
