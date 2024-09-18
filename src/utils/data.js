@@ -12,6 +12,7 @@ import accessory4 from "../assets/accessory_4.png";
 import sunglasses from "../assets/sunglasses1.png";
 
 import dealSample from "../assets/dealSample.jpg";
+import sampleBestSeller from "../assets/sampleBestSeller.jpg";
 
 export const navbarSubCategories = [
   {
@@ -248,69 +249,147 @@ export const sampleCardItems = [
 
 export const sampleDeals = [
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "a",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "b",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "c",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "d",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "e",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "f",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "g",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "h",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "i",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "j",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
   },
   {
-    deal_id: "B0DDTXJ2MX",
-    deal_title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
-    deal_photo: dealSample,
-    deal_badge: "15% off",
+    id: "k",
+    asin: "B0DDTXJ2MX",
+    title: "realme NARZO 70 Turbo 5G (Turbo Yellow,6GB RAM,128GB Storage)",
+    photo: dealSample,
+    badge: "15% off",
+  },
+];
+
+export const sampleBestSellers = [
+  {
+    id: 1,
+    asin: "B0BZVZYXV5",
+    title:
+      "SJeware 12 Pairs Solid Cotton Ankle Length Socks for Men & Women, Multicolor, Pack of 12, Free Size",
+    price: "₹198.00",
+    photo: sampleBestSeller,
+  },
+  {
+    id: 2,
+    asin: "B0BZVZYXV5",
+    title:
+      "SJeware 12 Pairs Solid Cotton Ankle Length Socks for Men & Women, Multicolor, Pack of 12, Free Size",
+    price: "₹198.00",
+    photo: sampleBestSeller,
+  },
+  {
+    id: 3,
+    asin: "B0BZVZYXV5",
+    title:
+      "SJeware 12 Pairs Solid Cotton Ankle Length Socks for Men & Women, Multicolor, Pack of 12, Free Size",
+    price: "₹198.00",
+    photo: sampleBestSeller,
+  },
+  {
+    id: 4,
+    asin: "B0BZVZYXV5",
+    title:
+      "SJeware 12 Pairs Solid Cotton Ankle Length Socks for Men & Women, Multicolor, Pack of 12, Free Size",
+    price: "₹198.00",
+    photo: sampleBestSeller,
+  },
+  {
+    id: 5,
+    asin: "B0BZVZYXV5",
+    title:
+      "SJeware 12 Pairs Solid Cotton Ankle Length Socks for Men & Women, Multicolor, Pack of 12, Free Size",
+    price: "₹198.00",
+    photo: sampleBestSeller,
+  },
+  {
+    id: 6,
+    asin: "B0BZVZYXV5",
+    title:
+      "SJeware 12 Pairs Solid Cotton Ankle Length Socks for Men & Women, Multicolor, Pack of 12, Free Size",
+    price: "₹198.00",
+    photo: sampleBestSeller,
+  },
+  {
+    id: 7,
+    asin: "B0BZVZYXV5",
+    title:
+      "SJeware 12 Pairs Solid Cotton Ankle Length Socks for Men & Women, Multicolor, Pack of 12, Free Size",
+    price: "₹198.00",
+    photo: sampleBestSeller,
+  },
+  {
+    id: 8,
+    asin: "B0BZVZYXV5",
+    title:
+      "SJeware 12 Pairs Solid Cotton Ankle Length Socks for Men & Women, Multicolor, Pack of 12, Free Size",
+    price: "₹198.00",
+    photo: sampleBestSeller,
   },
 ];

@@ -1,16 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { sampleDeals } from "../utils/data";
-import { Link } from "react-router-dom";
 import ProductCardMini from "./ProductCardMini";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-const Deals = () => {
+const Deals = ({ data, title }) => {
   return (
     <div className="flex flex-col gap-2 shadow-lg p-5">
-      <h2 className="text-xl font-medium">Top Deals</h2>
+      <h2 className="text-xl font-medium">{title}</h2>
       <div className="overflow-hidden">
         <Swiper
           modules={[Navigation]}
@@ -29,16 +27,17 @@ const Deals = () => {
           }}
           navigation
         >
-          {sampleDeals.map((item, idx) => (
+          {data.map((item) => (
             <SwiperSlide
-              key={idx}
-              className="relative max-w-[300px] sm:w-[300px] w-[250px]"
+              key={item.id}
+              className="relative max-w-[300px] sm:w-[300px] w-[250px] min-w-[250px]"
             >
               <ProductCardMini
-                id={item.deal_id}
-                photo={item.deal_photo}
-                badge={item.deal_badge}
-                title={item.deal_title}
+                id={item.asin}
+                photo={item.photo}
+                badge={item.badge}
+                title={item.title}
+                price={item.price}
               />
             </SwiperSlide>
           ))}

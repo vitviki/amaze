@@ -1,7 +1,6 @@
-import { Carousel } from "../components";
+import { Carousel, Deals, ProductCard } from "../components";
 import { sampleCardItems } from "../utils/data";
-import ProductCard from "../components/ProductCard";
-import Deals from "../components/Deals";
+import { sampleBestSellers, sampleDeals } from "../utils/data";
 
 const Home = () => {
   return (
@@ -26,7 +25,13 @@ const Home = () => {
         </div>
 
         {/* Today's Deals */}
-        <Deals />
+        <Deals data={sampleDeals} title={"Top Deals"} />
+
+        {/* Best seller in apparels */}
+        <Deals
+          data={sampleBestSellers}
+          title={"Best sellers in Clothing & Accessory"}
+        />
       </div>
     </div>
   );
