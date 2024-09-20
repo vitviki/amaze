@@ -40,7 +40,7 @@ const ProductCardMini = ({ id, title, photo, badge, price }) => {
   }, [wishlist]);
 
   return (
-    <div className="group">
+    <div className="group" title={title}>
       {badge && (
         <div className="absolute top-0 left-0 flex items-center px-3 bg-red-500 text-white font-medium md:text-base text-sm">
           <h5>{badge}</h5>
@@ -63,11 +63,12 @@ const ProductCardMini = ({ id, title, photo, badge, price }) => {
           )}
         </div>
       </div>
-      <Link className="md:mt-3 mt-2" to={`products/${id}`}>
-        <img src={photo} alt={title} />
+      <Link className="md:mt-3 mt-2 h-full" to={`products/${id}`}>
+        <img src={photo} alt={title} className="object-fit" />
       </Link>
-      <h3 className="md:text-sm text-xs font-medium truncate ...">{title}</h3>
-      {price && <p className="text-center text-sm text-gray-900">{price}</p>}
+      {price && (
+        <p className="text-center text-base text-gray-900 mt-2">{price}</p>
+      )}
     </div>
   );
 };

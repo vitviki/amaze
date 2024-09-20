@@ -11,8 +11,6 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 };
 
-console.log(import.meta.env.VITE_API_KEY);
-
 // Initial firebase.
 const app = initializeApp(firebaseConfig);
 

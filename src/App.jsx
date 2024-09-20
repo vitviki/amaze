@@ -14,7 +14,6 @@ export default function App() {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        console.log(authUser.displayName);
         dispatch(
           loginUser({
             uid: authUser.uid,
