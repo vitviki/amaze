@@ -1,21 +1,51 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebase";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/");
+        toast.success("Login successful");
+      })
+      .catch((err) => {
+        if (err.message.includes("auth/invalid-credential")) {
+          toast.error("Invalid credentials. Please try again");
+        } else {
+          toast.error(err.message);
+        }
+      });
+  };
+
   return (
     <div className="w-full flex justify-center gap-7 my-10 sm:px-0 px-4">
       <div className="max-w-[500px] min-w-[200px] w-[500px] h-max flex flex-col border rounded-md px-4 py-5 shadow-lg">
         <h2 className="sm:text-2xl text-xl mb-5 ">Sign In</h2>
-        <form className="w-full flex flex-col gap-3 mb-5">
+        <form
+          className="w-full flex flex-col gap-3 mb-5"
+          onSubmit={handleSubmit}
+        >
           <input
             type="text"
             className="w-full border px-2 py-3 rounded-md"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             className="w-full border px-2 py-3 rounded-md mb-2"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <button className="w-full rounded-md flex items-center justify-center py-2 bg-yellow-400">
             Sign In
