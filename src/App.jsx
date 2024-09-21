@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { loginUser, setLoading } from "./redux/features/user/userSlice";
 import { Navbar, Footer } from "./components";
-import { Home, Login, SignUp, Wishlist } from "./pages";
+import { Home, Login, SignUp, Wishlist, Category, Product } from "./pages";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
@@ -39,6 +39,8 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/" element={<Home />} />
         <Route path="/wisthlist" element={<Wishlist />} />
+        <Route path="/:categoryId" element={<Category />} />
+        <Route path="/products/:productId" element={<Product />} />
       </Routes>
       <Footer />
       <ToastContainer

@@ -37,8 +37,6 @@ const Home = () => {
     error: errorBeauty,
   } = useGetBestSellersQuery("beauty");
 
-  console.log(bestSellersSports);
-
   // Format deals data.
   useEffect(() => {
     if (dealData) {

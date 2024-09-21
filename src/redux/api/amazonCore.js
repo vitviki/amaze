@@ -18,7 +18,19 @@ export const amazonCore = createApi({
       query: (category) =>
         `/best-sellers?category=${category}&type=BEST_SELLERS&page=1&country=IN`,
     }),
+    getProductDetails: builder.query({
+      query: (productId) => `/product-details?asin=${productId}&country=IN`,
+    }),
+    getData: builder.query({
+      query: (queryString) =>
+        `/search?query=${queryString}&page=1&country=IN&sort_by=RELEVANCE&product_condition=ALL&is_prime=false`,
+    }),
   }),
 });
 
-export const { useGetBestDealsQuery, useGetBestSellersQuery } = amazonCore;
+export const {
+  useGetBestDealsQuery,
+  useGetBestSellersQuery,
+  useGetProductDetailsQuery,
+  useGetDataQuery,
+} = amazonCore;

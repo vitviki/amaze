@@ -63,9 +63,12 @@ const ProductCardMini = ({ id, title, photo, badge, price }) => {
           )}
         </div>
       </div>
-      <Link className="md:mt-3 mt-2 h-full" to={`products/${id}`}>
+      <Link className="md:mt-3 mt-2 h-full" to={`/products/${id}`}>
         <img src={photo} alt={title} className="object-fit" />
       </Link>
+      <h3 className="md:text-sm text-xs mt-2 font-medium truncate ...">
+        {title}
+      </h3>
       {price && (
         <p className="text-center text-base text-gray-900 mt-2">{price}</p>
       )}
