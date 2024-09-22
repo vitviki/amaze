@@ -4,7 +4,7 @@ const initialState = {
   user: null,
   isLoading: true,
   wishlist: [],
-  cart: [],
+  cart: {},
 };
 
 const userSlice = createSlice({

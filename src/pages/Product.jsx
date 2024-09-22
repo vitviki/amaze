@@ -11,7 +11,7 @@ import { IoMdCart } from "react-icons/io";
 import { IoMdHeart, IoIosHeartEmpty } from "react-icons/io";
 import { calculateDiscountPercentage } from "../utils/utils";
 import ProductCardMini from "../components/ProductCardMini";
-import { setWishlist } from "../redux/features/user/userSlice";
+import { setWishlist, setCart } from "../redux/features/user/userSlice";
 
 const RelatedProducts = ({ name }) => {
   const { data: relatedProductsData, isFetching } = useGetDataQuery(name);
@@ -45,7 +45,7 @@ const RelatedProducts = ({ name }) => {
 
 const Product = () => {
   const dispatch = useDispatch();
-  const { user, wishlist } = useSelector((state) => state.user);
+  const { user, wishlist, cart } = useSelector((state) => state.user);
   const [isInWishlist, setIsInWishlist] = useState(false);
   const { productId } = useParams();
   const [mainImage, setMainImage] = useState("");
@@ -56,7 +56,22 @@ const Product = () => {
   const { data: productData, isFetching } =
     useGetProductDetailsQuery(productId);
 
-  const addToCart = () => {};
+  const addToCart = () => {
+    // Look for the item in the cart. If it's already there, then update the quantity of the item by 1.
+
+    const newCartItem = {
+      id: productId,
+      title: productData?.data.product_title,
+      photo: productData?.data.product_photos[0],
+      price: Number(
+        productData?.data.product_price.replace(/[!,@#$%^&₹*]/g, "")
+      ),
+      descripton: productData?.data.product_description,
+      quantity: 1,
+    };
+    const cartItems = { [productId]: newCartItem, ...cart };
+    dispatch(setCart(cartItems));
+  };
 
   const addToWishlist = () => {
     if (!user) {
@@ -140,7 +155,7 @@ const Product = () => {
             <p className="pl-2">({productData?.data.product_num_ratings})</p>
           </div>
           <p className="mt-5 text-3xl font-medium mb-2">
-            ₹{productData?.data.product_price}{" "}
+            {productData?.data.product_price}{" "}
             {productData?.data.product_original_price !== null ? (
               <span className="font-light text-xl ml-1">
                 MRP{" "}
