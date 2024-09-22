@@ -131,7 +131,7 @@ const Home = () => {
         {/* Today's Deals */}
         <Deals data={deals} title={"Top Deals"} />
 
-        {/* Best seller in apparels */}
+        {/* Best seller in laptops */}
         <Deals data={bestSellingComputers} title={"Best selling laptops"} />
 
         {/* More categories */}

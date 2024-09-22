@@ -4,3 +4,7 @@ export const calculateDiscountPercentage = (currentPrice, originalPrice) => {
 
   return Math.floor(((amount2 - amount1) / ((amount1 + amount2) / 2)) * 100);
 };
+
+export const getProductPrice = (product) => {
+  return Number(product?.product_price?.replace(/[!@,#$%^&₹*]/g, ""));
+};
