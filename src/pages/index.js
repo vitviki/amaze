@@ -4,4 +4,6 @@ import SignUp from "./SignUp";
 import Wishlist from "./Wishlist";
 import Category from "./Category";
 import Product from "./Product";
-export { Home, Login, SignUp, Wishlist, Category, Product };
+import Search from "./Search";
+
+export { Home, Login, SignUp, Wishlist, Category, Product, Search };

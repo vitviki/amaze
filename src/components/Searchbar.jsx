@@ -1,14 +1,15 @@
+import { useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const Searchbar = () => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
   const handleSearch = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const searchInput = formData.get("search");
-
-    if (searchInput) {
-      // router.push(`/search?name=${searchInput}`);
-    }
+    setSearchTerm("");
+    navigate(`/search/${searchTerm}`);
   };
 
   return (
@@ -20,6 +21,8 @@ const Searchbar = () => {
         type="text"
         placeholder="Search..."
         name="search"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
         className="flex-1 bg-transparent outline-none sm:placeholder:text-base placeholder:text-sm"
       />
       <button className="cursor-pointer px-4 py-2 bg-amazon_yellow flex items-center justify-center rounded-lg">
