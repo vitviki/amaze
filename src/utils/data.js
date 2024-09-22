@@ -4,12 +4,11 @@ import AmazeMania3 from "../assets/amaze-maina-7.jpg";
 import AmazeMania4 from "../assets/amaze_mania-8.jpg";
 import AmazeMania5 from "../assets/amaze-maina-6.jpg";
 
-import accessory1 from "../assets/accessory_1.png";
-import accessory2 from "../assets/accessory_2.png";
-import accessory3 from "../assets/accessory_3.png";
-import accessory4 from "../assets/accessory_4.png";
-
 import sunglasses from "../assets/sunglasses1.png";
+import personalcare from "../assets/personal-care.jpg";
+import yoga from "../assets/yoga-42.png";
+import pantry from "../assets/pantry.png";
+import pet from "../assets/pet.png";
 
 import dealSample from "../assets/dealSample.jpg";
 import sampleBestSeller from "../assets/sampleBestSeller.jpg";
@@ -19,20 +18,12 @@ import gym from "../assets/gym.png";
 
 export const navbarSubCategories = [
   {
-    _id: "fresh",
-    title: "Fresh",
-  },
-  {
-    _id: "mini_tv",
-    title: "Amazon miniTV",
+    _id: "pantry",
+    title: "Pantry",
   },
   {
     _id: "mobiles",
     title: "Mobiles",
-  },
-  {
-    _id: "prime",
-    title: "Prime",
   },
   {
     _id: "books",
@@ -47,8 +38,20 @@ export const navbarSubCategories = [
     title: "Fashion",
   },
   {
-    _id: "home_and_kitchen",
-    title: "Home & Kitchen",
+    _id: "appliances",
+    title: "Appliances",
+  },
+  {
+    _id: "collectibles",
+    title: "Collectibles",
+  },
+  {
+    _id: "furniture",
+    title: "Furniture",
+  },
+  {
+    _id: "jewellery",
+    title: "Jewellery",
   },
 ];
 
@@ -159,95 +162,33 @@ export const homePageSliderItems = [
 
 export const sampleCardItems = [
   {
-    _id: "accessories",
-    title: "Get Best Accessories",
-    subTitle: "See more",
-    images: [
-      {
-        _id: "computer",
-        img: accessory1,
-        title: "Computers & Laptops",
-      },
-      {
-        _id: "headphones",
-        img: accessory2,
-        title: "Headphones",
-      },
-      {
-        _id: "camera",
-        img: accessory3,
-        title: "Cameras",
-      },
-      {
-        _id: "smartphone",
-        img: accessory4,
-        title: "Phones",
-      },
-    ],
-  },
-  {
     _id: "sunglasses",
+    link: "/category/sunglasses",
     title: "Sunglasses",
-    images: [sunglasses],
+    images: sunglasses,
     subTitle: "Shop now",
   },
   {
-    _id: "accessories2",
-    title: "Get Best Accessories",
-    subTitle: "See more",
-    images: [
-      {
-        _id: "computer1",
-        img: accessory1,
-        title: "Computers & Laptops",
-      },
-      {
-        _id: "headphones1",
-        img: accessory2,
-        title: "Headphones",
-      },
-      {
-        _id: "camera1",
-        img: accessory3,
-        title: "Cameras",
-      },
-      {
-        _id: "smartphone1",
-        img: accessory4,
-        title: "Phones",
-      },
-    ],
-  },
-  {
-    _id: "sunglasses2",
-    title: "Sunglasses",
-    images: [sunglasses],
+    _id: "personal_care",
+    link: "/category/hygiene",
+    title: "Personal Care",
+    images: personalcare,
     subTitle: "Shop now",
   },
-  // {
-  //   _id: "sunglasses3",
-  //   title: "Sunglasses",
-  //   images: [sunglasses],
-  //   subTitle: "Shop now",
-  // },
-  // {
-  //   _id: "sunglasses4",
-  //   title: "Sunglasses",
-  //   images: [sunglasses],
-  //   subTitle: "Shop now",
-  // },
-  // {
-  //   _id: "sunglasses5",
-  //   title: "Sunglasses",
-  //   images: [sunglasses],
-  //   subTitle: "Shop now",
-  // },
-  // {
-  //   _id: "sunglasses6",
-  //   title: "Sunglasses",
-  //   images: [sunglasses],
-  //   subTitle: "Shop now",
-  // },
+  {
+    _id: "yoga",
+    link: "/category/yoga",
+    title: "Yoga Eqipments",
+    images: yoga,
+    subTitle: "Shop now",
+  },
+  {
+    _id: "pantry",
+    link: "/category/pantry",
+    title: "Pantry",
+    images: pantry,
+    subTitle: "Shop now",
+  },
 ];
 
 export const sampleDeals = [
@@ -401,26 +342,30 @@ export const sampleMoreCategories = [
   {
     _id: "shoes",
     title: "Upto 50% off on shoes",
-    images: [shoes],
+    images: shoes,
+    link: "/category/shoes",
     subTitle: "Shop now",
   },
 
   {
-    _id: "sunglasses9",
-    title: "Sunglasses",
-    images: [sunglasses],
+    _id: "pet",
+    title: "Pet grooming & food",
+    images: pet,
+    link: "/category/pets",
     subTitle: "Shop now",
   },
   {
     _id: "watches",
     title: "Get best deals on wrist watches",
-    images: [watches],
+    images: watches,
+    link: "/category/watches",
     subTitle: "Shop now",
   },
   {
     _id: "gym",
     title: "Upto 30% off on gym equipments",
-    images: [gym],
+    images: gym,
+    link: "/category/gym",
     subTitle: "Shop now",
   },
 ];

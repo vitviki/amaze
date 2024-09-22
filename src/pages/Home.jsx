@@ -120,7 +120,7 @@ const Home = () => {
               <ProductCard
                 key={item._id}
                 title={item.title}
-                link="/"
+                link={item.link}
                 images={item.images}
                 subTitle={item.subTitle}
               />
@@ -141,7 +141,7 @@ const Home = () => {
               <ProductCard
                 key={item._id}
                 title={item.title}
-                link="/"
+                link={item.link}
                 images={item.images}
                 subTitle={item.subTitle}
               />

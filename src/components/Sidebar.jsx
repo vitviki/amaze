@@ -44,13 +44,10 @@ const Sidebar = () => {
                 <h3 className="text-xl font-semibold">Trending</h3>
                 <ul className="flex flex-col gap-8 font-light text-sm leading-5 font-mono tracking-wider">
                   <li>
-                    <Link to="/">Best Sellers</Link>
+                    <Link to="/">Best Deals</Link>
                   </li>
                   <li>
                     <Link to="/">New Releases</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Movers & Shakers</Link>
                   </li>
                 </ul>
               </div>
@@ -59,35 +56,108 @@ const Sidebar = () => {
                 <h3 className="text-xl font-semibold">Shop by Category</h3>
                 <ul className="flex flex-col gap-8 font-light text-sm leading-5 font-mono tracking-wider">
                   <li>
-                    <Link href="/">Mobile</Link>
+                    <Link
+                      to="/category/mobile"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Mobile
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/">Computers</Link>
+                    <Link
+                      to="/category/computers"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Computers
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/">TV & Appliances</Link>
+                    <Link
+                      to="/category/electronics"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Electronics
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/">Men&apos;s Fashion</Link>
+                    <Link
+                      to="/category/appliances"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      TV & Appliances
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/">Women&apos;s Fashion</Link>
+                    <Link
+                      to="/category/fashion"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Fashion
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/">Sports & Fitness</Link>
-                  </li>
-                  hamburger
-                  <li>
-                    <Link href="/">Books</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Movies, Music & Video Games</Link>
+                    <Link
+                      to="/category/baby"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Baby
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/">Books</Link>
+                    <Link
+                      to="/category/sporting"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Sports & Fitness
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/">Beauty & Make-up</Link>
+                    <Link
+                      to="/category/books"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Books
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/category/dvd"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Movies
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/category/shoes"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Shoes
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/category/beauty"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Beauty & Make-up
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/category/collectibles"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Collectibles
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/category/videogames"
+                      onClick={() => dispatch(closeSideBar())}
+                    >
+                      Video Games
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -99,19 +169,19 @@ const Sidebar = () => {
                 </h3>
                 <ul className="flex flex-col gap-8 font-light text-sm leading-5 font-mono tracking-wider">
                   <li>
-                    <Link href="/">Amazon miniTV</Link>
+                    <Link to="/">Amazon miniTV</Link>
                   </li>
                   <li>
-                    <Link href="/">Echo & Alexa</Link>
+                    <Link to="/">Echo & Alexa</Link>
                   </li>
                   <li>
-                    <Link href="/">Fire TV</Link>
+                    <Link to="/">Fire TV</Link>
                   </li>
                   <li>
-                    <Link href="/">Amazon Prime Video</Link>
+                    <Link to="/">Amazon Prime Video</Link>
                   </li>
                   <li>
-                    <Link href="/">Amazon Prime Music</Link>
+                    <Link to="/">Amazon Prime Music</Link>
                   </li>
                 </ul>
               </div>
@@ -123,19 +193,19 @@ const Sidebar = () => {
                 </h3>
                 <ul className="flex flex-col gap-8 font-light text-sm leading-5 font-mono tracking-wider">
                   <li>
-                    <Link href="/">Amazon miniTV</Link>
+                    <Link to="/">Amazon miniTV</Link>
                   </li>
                   <li>
-                    <Link href="/">Echo & Alexa</Link>
+                    <Link to="/">Echo & Alexa</Link>
                   </li>
                   <li>
-                    <Link href="/">Fire TV</Link>
+                    <Link to="/">Fire TV</Link>
                   </li>
                   <li>
-                    <Link href="/">Amazon Prime Video</Link>
+                    <Link to="/">Amazon Prime Video</Link>
                   </li>
                   <li>
-                    <Link href="/">Amazon Prime Music</Link>
+                    <Link to="/">Amazon Prime Music</Link>
                   </li>
                 </ul>
               </div>
@@ -145,10 +215,10 @@ const Sidebar = () => {
                 <h3 className="text-xl font-semibold">Help & Settings</h3>
                 <ul className="flex flex-col gap-8 font-light text-sm leading-5 font-mono tracking-wider">
                   <li>
-                    <Link href="/">Your Account</Link>
+                    <Link to="/">Your Account</Link>
                   </li>
                   <li>
-                    <Link href="/">Customer Service</Link>
+                    <Link to="/">Customer Service</Link>
                   </li>
                   {user && (
                     <li>

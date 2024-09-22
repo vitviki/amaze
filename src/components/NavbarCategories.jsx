@@ -19,7 +19,7 @@ const NavbarCategoriesBar = () => {
       <div className="flex items-center xl:gap-10 gap-6">
         {navbarSubCategories.map((item) => (
           <Link
-            to={`/${item._id}`}
+            to={`/category/${item._id}`}
             key={item._id}
             className="text-white font-montserrat"
           >
