@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { CiUser, CiShoppingCart } from "react-icons/ci";
@@ -6,6 +8,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { CiCircleRemove } from "react-icons/ci";
 import { openSideBar } from "../redux/features/hamburgerMenu/hamburgerSlice";
 import { useEffect, useState } from "react";
+import { logoutUser } from "../redux/features/user/userSlice";
+import { toast } from "react-toastify";
 
 const CartModal = () => {
   const { cart } = useSelector((state) => state.user);
@@ -87,8 +91,41 @@ const CartModal = () => {
 
 const NavbarIcons = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user, cart } = useSelector((state) => state.user);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+  const handleUserProfileClick = () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+    setIsProfileOpen((prev) => !prev);
+
+    if (isCartOpen) {
+      setIsCartOpen(false);
+    }
+  };
+
+  const handleCartOpenClick = () => {
+    if (isProfileOpen) {
+      setIsProfileOpen(false);
+    }
+
+    setIsCartOpen((prev) => !prev);
+  };
+
+  const handleLogout = () => {
+    if (!user) {
+      return;
+    }
+
+    dispatch(logoutUser());
+    signOut(auth);
+    toast.info("Logged Out");
+    setIsProfileOpen(false);
+  };
 
   return (
     <div className="flex items-center gap-4 xl:gap-8">
@@ -103,14 +140,21 @@ const NavbarIcons = () => {
           title="Wishlist"
         />
       </Link>
-      <CiUser
-        className="text-white md:text-3xl text-2xl cursor-pointer"
-        title={user ? user.username : "Login"}
-      />
-      <div
-        onClick={() => setIsCartOpen((prev) => !prev)}
-        className="relative cursor-pointer"
-      >
+      <div className="relative">
+        <CiUser
+          className="text-white md:text-3xl text-2xl cursor-pointer"
+          title={user ? user.username : "Login"}
+          onClick={handleUserProfileClick}
+        />
+        {isProfileOpen && (
+          <div className="absolute px-7 py-4 rounded-md top-8 bg-white left-0 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
+            <div className="cursor-pointer" onClick={handleLogout}>
+              Logout
+            </div>
+          </div>
+        )}
+      </div>
+      <div onClick={handleCartOpenClick} className="relative cursor-pointer">
         <CiShoppingCart
           className="text-white md:text-3xl text-2xl"
           title="Cart"
