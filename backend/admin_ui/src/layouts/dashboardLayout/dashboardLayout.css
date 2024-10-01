@@ -1,0 +1,13 @@
+.dashboardLayout {
+    display: flex;
+    height: 100%;
+    padding-top: 20px;
+
+    .sidebar {
+        flex: 1;
+    }
+
+    .content {
+        flex: 5;
+    }
+}
