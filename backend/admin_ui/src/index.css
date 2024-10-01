@@ -29,3 +29,8 @@ body, html {
   }
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+

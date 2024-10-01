@@ -1,7 +1,12 @@
 .dashboardLayout {
     display: flex;
-    height: 100%;
-    padding-top: 20px;
+    height: calc(100% - 100px);
+    padding: 20px 0px;
+
+    hr {
+        background-color: black;
+        opacity: 0.2;
+    }
 
     .sidebar {
         flex: 1;

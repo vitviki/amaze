@@ -3,6 +3,8 @@ import { DashboardLayout } from "./layouts";
 import {
   AllBrands,
   AllProducts,
+  AllCategories,
+  Category,
   Product,
   Brand,
   Dashboard,
@@ -31,8 +33,10 @@ const App = () => {
           <Route index element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
           <Route path="/products" element={<AllProducts />} />
-          <Route path="/add-product" element={<AddProduct />} />
           <Route path="/product/:productID" element={<Product />} />
+          <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/categories" element={<AllCategories />} />
+          <Route path="/category/:categoryId" element={<Category />} />
           <Route path="/brands" element={<AllBrands />} />
           <Route path="/brand/:brandID" element={<Brand />} />
         </Route>
