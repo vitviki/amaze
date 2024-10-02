@@ -7,7 +7,6 @@ import Brand from "./brand/Brand";
 import Dashboard from "./dashboard/Dashboard";
 import Login from "./login/Login";
 import Users from "./users/Users";
-import AddProduct from "./addProduct/AddProduct";
 
 export {
   AllBrands,
@@ -19,5 +18,4 @@ export {
   Dashboard,
   Login,
   Users,
-  AddProduct,
 };

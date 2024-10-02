@@ -10,7 +10,6 @@ import {
   Dashboard,
   Login,
   Users,
-  AddProduct,
 } from "./pages";
 import logo from "./assets/amaze_logo.png";
 
@@ -34,7 +33,6 @@ const App = () => {
           <Route path="/users" element={<Users />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/product/:productID" element={<Product />} />
-          <Route path="/add-product" element={<AddProduct />} />
           <Route path="/categories" element={<AllCategories />} />
           <Route path="/category/:categoryId" element={<Category />} />
           <Route path="/brands" element={<AllBrands />} />

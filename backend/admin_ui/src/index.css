@@ -34,3 +34,22 @@ a {
   color: black;
 }
 
+button {
+    width: 150px;
+    padding: 5px 0;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    span {
+        font-size: 15px;
+    }
+}
+
+.buttons {
+  display: flex;
+  gap:20px;
+
+}
+
