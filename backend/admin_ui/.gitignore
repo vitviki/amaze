@@ -25,3 +25,4 @@ dist-ssr
 
 sample_assets
 sample_products
+.env

@@ -14,18 +14,43 @@ import {
 } from "@table-library/react-table-library/select";
 import { getTheme } from "@table-library/react-table-library/baseline";
 import { useTheme } from "@table-library/react-table-library/theme";
-import { Link } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import { sampleProducts } from "../../sample_products/sample";
-
-import "./allProducts.css";
 import { useState } from "react";
 import { AddProduct } from "../../components";
+import "./allProducts.css";
 
 const ProductsTable = ({ searchTerm }) => {
+  const [allProducts, setAllProducts] = useState([]);
+
+  async function getAllProducts() {
+    try {
+      const products = await fetch(
+        "http://localhost:3000/api/products/getAllProducts",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((data) => {
+          return data.json();
+        })
+        .then((products) => products.products);
+
+      setAllProducts(products);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  if (allProducts.length === 0) {
+    getAllProducts();
+  }
+
   const data = {
-    nodes: sampleProducts.filter((product) =>
-      product.title.toLocaleLowerCase().includes(searchTerm.toLowerCase())
+    nodes: allProducts.filter((item) =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase())
     ),
   };
   const theme = useTheme([
@@ -58,7 +83,7 @@ const ProductsTable = ({ searchTerm }) => {
           <Header>
             <HeaderRow>
               <HeaderCellSelect />
-              <HeaderCell>ASIN</HeaderCell>
+              <HeaderCell>ID</HeaderCell>
               <HeaderCell>Image</HeaderCell>
               <HeaderCell>Title</HeaderCell>
               <HeaderCell>Category</HeaderCell>
@@ -68,9 +93,9 @@ const ProductsTable = ({ searchTerm }) => {
 
           <Body>
             {tableList.map((item) => (
-              <Row key={item.asin} item={item}>
+              <Row key={item._id} item={item}>
                 <CellSelect item={item} />
-                <Cell>{item.asin}</Cell>
+                <Cell>{item._id}</Cell>
                 <Cell>
                   <img src={item.image} alt={item.title} />
                 </Cell>

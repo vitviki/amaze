@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./addProduct.css";
+import Upload from "../upload/Upload";
 
 const AddProduct = ({ setAddProduct }) => {
   const [title, setTitle] = useState("");
@@ -48,6 +49,7 @@ const AddProduct = ({ setAddProduct }) => {
             <label htmlFor="bestseller">Best Seller</label>
           </div>
         </div>
+        <Upload />
         <div className="buttons">
           <button onClick={handleAddProduct}>Add Product</button>
           <button onClick={() => setAddProduct(false)}>Cancel</button>
