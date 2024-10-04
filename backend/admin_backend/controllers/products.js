@@ -3,27 +3,40 @@ import { Products } from "../models/products.js";
 // Add New Product
 export const addNewProduct = async (req, res) => {
   try {
-    const { title, price, description, bestSeller, category, imagePath } =
-      req.body;
+    let product = {};
 
-    if (!title || !price || !description || !imagePath || !category) {
+    const {
+      title,
+      price,
+      description,
+      bestSeller,
+      category,
+      rating,
+      quantity,
+    } = req.body;
+    const images = req.images;
+
+    if (!title || !price || !description || !category) {
       return res.status(400).json({
         message: "Please provide all necessary information",
         success: false,
       });
     }
 
-    await Products.create({
-      title,
-      price,
-      description,
-      bestSeller,
-      category,
-      image: imagePath,
-    });
+    product.title = title;
+    product.price = Number(price);
+    product.description = description;
+    product.bestSeller = Boolean(bestSeller);
+    product.category = category;
+    product.images = images;
+    product.rating = Number(rating);
+    product.quantity = Number(quantity);
+    const newProduct = new Products(product);
+    const savedProduct = await newProduct.save();
 
     return res.status(200).json({
       message: "Product added successfully",
+      savedProduct,
       success: true,
     });
   } catch (error) {

@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import ImageKit from "imagekit";
 import cors from "cors";
 import productRoute from "./routes/productRoutes.js";
 
@@ -9,12 +8,6 @@ dotenv.config();
 
 const port = process.env.PORT || 3001;
 const app = express();
-
-const imagekit = new ImageKit({
-  urlEndpoint: process.env.IMAGE_KIT_ENDPOINT,
-  publicKey: process.env.IMAGE_KIT_PUBLIC_KEY,
-  privateKey: process.env.IMAGE_KIT_PRIVATE_KEY,
-});
 
 app.use(express.json());
 app.use(
@@ -31,10 +24,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get("/api/upload", function (req, res) {
-  var result = imagekit.getAuthenticationParameters();
-  res.send(result);
-});
+// Routes
 app.use("/api/products", productRoute);
 
 const connect = async () => {

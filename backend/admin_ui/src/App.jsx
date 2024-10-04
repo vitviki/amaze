@@ -12,6 +12,8 @@ import {
   Users,
 } from "./pages";
 import logo from "./assets/amaze_logo.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
   return (
@@ -40,6 +42,18 @@ const App = () => {
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

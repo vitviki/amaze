@@ -25,7 +25,7 @@ const ProductsTable = ({ searchTerm }) => {
   async function getAllProducts() {
     try {
       const products = await fetch(
-        "http://localhost:3000/api/products/getAllProducts",
+        `${import.meta.env.VITE_BACKEND_URL}/products/getAllProducts`,
         {
           method: "GET",
           headers: {
@@ -97,7 +97,7 @@ const ProductsTable = ({ searchTerm }) => {
                 <CellSelect item={item} />
                 <Cell>{item._id}</Cell>
                 <Cell>
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.images[0]} alt={item.title} />
                 </Cell>
                 <Cell className="item_title">{item.title}</Cell>
                 <Cell>{item.category}</Cell>
