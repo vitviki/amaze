@@ -6,6 +6,7 @@ const AddProduct = ({ setAddProduct }) => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [description, setDescription] = useState("");
@@ -24,6 +25,7 @@ const AddProduct = ({ setAddProduct }) => {
             setTitle("");
             setPrice(0);
             setCategory("");
+            setBrand("");
             setQuantity(0);
             setDescription("");
             setBestSeller(false);
@@ -51,9 +53,12 @@ const AddProduct = ({ setAddProduct }) => {
     formData.append("description", description);
     formData.append("bsetSeller", bestSeller);
     formData.append("category", category);
+    formData.append("brand", brand);
     [...images].forEach((image) => {
       formData.append("images", image);
     });
+
+    console.log(formData);
 
     upload(formData);
   };
@@ -102,13 +107,13 @@ const AddProduct = ({ setAddProduct }) => {
               />
             </div>
             <div className="inputBox">
-              <label htmlFor="quantity">Quantity</label>
+              <label htmlFor="brand">Brand</label>
               <input
-                type="number"
-                placeholder="quantity"
-                id="quantity"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                type="text"
+                required
+                id="brand"
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
               />
             </div>
           </div>
@@ -122,16 +127,26 @@ const AddProduct = ({ setAddProduct }) => {
                 onChange={(e) => setRating(e.target.value)}
               />
             </div>
-            <div className="checkBox">
+            <div className="inputBox">
+              <label htmlFor="quantity">Quantity</label>
               <input
-                type="checkbox"
-                name="bestseller"
-                id="bestseller"
-                value={bestSeller}
-                onChange={() => setBestSeller((prev) => !prev)}
+                type="number"
+                placeholder="quantity"
+                id="quantity"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
               />
-              <label htmlFor="bestseller">Best Seller</label>
             </div>
+          </div>
+          <div className="checkBox">
+            <input
+              type="checkbox"
+              name="bestseller"
+              id="bestseller"
+              value={bestSeller}
+              onChange={() => setBestSeller((prev) => !prev)}
+            />
+            <label htmlFor="bestseller">Best Seller</label>
           </div>
           <div className="descriptionBox">
             <label htmlFor="description">Description</label>

@@ -13,10 +13,11 @@ export const addNewProduct = async (req, res) => {
       category,
       rating,
       quantity,
+      brand,
     } = req.body;
     const images = req.images;
 
-    if (!title || !price || !description || !category) {
+    if (!title || !price || !description || !category || !brand) {
       return res.status(400).json({
         message: "Please provide all necessary information",
         success: false,
@@ -26,6 +27,7 @@ export const addNewProduct = async (req, res) => {
     product.title = title;
     product.price = Number(price);
     product.description = description;
+    product.brand = brand;
     product.bestSeller = Boolean(bestSeller);
     product.category = category;
     product.images = images;

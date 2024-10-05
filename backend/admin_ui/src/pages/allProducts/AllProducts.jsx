@@ -19,7 +19,11 @@ import { useState } from "react";
 import { AddProduct } from "../../components";
 import "./allProducts.css";
 
-const ProductsTable = ({ searchTerm }) => {
+const ProductsTable = ({
+  searchTermProductName,
+  searchTermCategoryName,
+  searchTermBrandName,
+}) => {
   const [allProducts, setAllProducts] = useState([]);
 
   async function getAllProducts() {
@@ -49,9 +53,16 @@ const ProductsTable = ({ searchTerm }) => {
   }
 
   const data = {
-    nodes: allProducts.filter((item) =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase())
-    ),
+    nodes: allProducts.filter((item) => {
+      return (
+        item.title
+          .toLowerCase()
+          .includes(searchTermProductName.toLowerCase()) &&
+        item.category
+          .toLowerCase()
+          .includes(searchTermCategoryName.toLowerCase())
+      );
+    }),
   };
   const theme = useTheme([
     getTheme(),
@@ -112,7 +123,9 @@ const ProductsTable = ({ searchTerm }) => {
 };
 
 const AllProducts = () => {
-  const [search, setSearch] = useState("");
+  const [searchByProductName, setSearchByProductName] = useState("");
+  const [searchByCategory, setSearchByCategory] = useState("");
+  const [searchByBrand, setSearchByBrand] = useState("");
   const [addProduct, setAddProduct] = useState(false);
 
   return (
@@ -120,12 +133,26 @@ const AllProducts = () => {
       {addProduct && <AddProduct setAddProduct={setAddProduct} />}
       <div className="topbar">
         <h2>All products</h2>
-        <input
-          type="text"
-          placeholder="Search by title"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <div className="inputs">
+          <input
+            type="text"
+            placeholder="Search by title"
+            value={searchByProductName}
+            onChange={(e) => setSearchByProductName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Search by category"
+            value={searchByCategory}
+            onChange={(e) => setSearchByCategory(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Search by brand"
+            value={searchByBrand}
+            onChange={(e) => setSearchByBrand(e.target.value)}
+          />
+        </div>
         <div className="buttons">
           <button title="Add a new product" onClick={() => setAddProduct(true)}>
             <FaPlus />
@@ -137,7 +164,11 @@ const AllProducts = () => {
           </button>
         </div>
       </div>
-      <ProductsTable searchTerm={search} />
+      <ProductsTable
+        searchTermProductName={searchByProductName}
+        searchTermCategoryName={searchByCategory}
+        searchTermBrandName={searchByBrand}
+      />
     </div>
   );
 };
