@@ -1,4 +1,6 @@
 import { Products } from "../models/products.js";
+import { Categories } from "../models/categories.js";
+import { Brands } from "../models/brands.js";
 
 // Add New Product
 export const addNewProduct = async (req, res) => {
@@ -24,12 +26,34 @@ export const addNewProduct = async (req, res) => {
       });
     }
 
+    // Check to see if the category already exists.
+    // If not, then add this category to the category list.
+    const checkCategory = await Categories.findOne({
+      title: category.toLowerCase(),
+    });
+    if (!checkCategory) {
+      await Categories.create({
+        title: category.toLowerCase(),
+      });
+    }
+
+    // Check to see if the brand already exists.
+    // If not, then add the brand to the brand list.
+    const checkBrand = await Brands.findOne({
+      title: brand.toLowerCase(),
+    });
+    if (!checkBrand) {
+      await Brands.create({
+        title: brand.toLowerCase(),
+      });
+    }
+
     product.title = title;
     product.price = Number(price);
     product.description = description;
-    product.brand = brand;
+    product.brand = brand.toLowerCase();
     product.bestSeller = Boolean(bestSeller);
-    product.category = category;
+    product.category = category.toLowerCase();
     product.images = images;
     product.rating = Number(rating);
     product.quantity = Number(quantity);

@@ -60,7 +60,8 @@ const ProductsTable = ({
           .includes(searchTermProductName.toLowerCase()) &&
         item.category
           .toLowerCase()
-          .includes(searchTermCategoryName.toLowerCase())
+          .includes(searchTermCategoryName.toLowerCase()) &&
+        item.brand.toLowerCase().includes(searchTermBrandName.toLowerCase())
       );
     }),
   };
@@ -68,7 +69,7 @@ const ProductsTable = ({
     getTheme(),
     {
       Table: `
-        --data-table-library_grid-template-columns:  44px repeat(5, minmax(0, 1fr));
+        --data-table-library_grid-template-columns:  44px repeat(6, minmax(0, 1fr));
         `,
     },
   ]);
@@ -98,6 +99,7 @@ const ProductsTable = ({
               <HeaderCell>Image</HeaderCell>
               <HeaderCell>Title</HeaderCell>
               <HeaderCell>Category</HeaderCell>
+              <HeaderCell>Brand</HeaderCell>
               <HeaderCell>Price</HeaderCell>
             </HeaderRow>
           </Header>
@@ -111,7 +113,8 @@ const ProductsTable = ({
                   <img src={item.images[0]} alt={item.title} />
                 </Cell>
                 <Cell className="item_title">{item.title}</Cell>
-                <Cell>{item.category}</Cell>
+                <Cell>{item.category.toUpperCase()}</Cell>
+                <Cell>{item.brand.toUpperCase()}</Cell>
                 <Cell>₹{item.price}</Cell>
               </Row>
             ))}

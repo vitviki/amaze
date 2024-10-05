@@ -15,7 +15,6 @@ cloudinary.config({
 
 const uploadMultiple = asyncHandler(async (req, res, next) => {
   try {
-    console.log(req);
     const images = req.files;
     const imageURLS = [];
 

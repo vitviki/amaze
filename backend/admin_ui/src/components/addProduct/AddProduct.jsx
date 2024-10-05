@@ -58,8 +58,6 @@ const AddProduct = ({ setAddProduct }) => {
       formData.append("images", image);
     });
 
-    console.log(formData);
-
     upload(formData);
   };
 
