@@ -1,7 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signOut } from "firebase/auth";
-import { auth } from "../firebase/firebase";
 import { FaUser } from "react-icons/fa";
 import { closeSideBar } from "../redux/features/hamburgerMenu/hamburgerSlice";
 import { logoutUser } from "../redux/features/user/userSlice";
@@ -15,7 +13,6 @@ const Sidebar = () => {
   const handleLogout = () => {
     dispatch(logoutUser());
     dispatch(closeSideBar());
-    signOut(auth);
   };
 
   const handleLogin = () => {
