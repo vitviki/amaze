@@ -22,7 +22,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/login",
+        "https://amaze-hhv9.onrender.com/api/users/login",
         {
           email,
           password,

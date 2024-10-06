@@ -14,7 +14,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/register",
+        "https://amaze-hhv9.onrender.com/users/register",
         {
           name,
           number,

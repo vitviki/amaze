@@ -23,7 +23,7 @@ export default function App() {
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.put(
-        "http://localhost:3000/api/users/update-wishlist",
+        "https://amaze-hhv9.onrender.com/api/users/update-wishlist",
         {
           userId: user.id,
           wishList: wishlist,
@@ -43,7 +43,7 @@ export default function App() {
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.put(
-        "http://localhost:3000/api/users/update-cart",
+        "https://amaze-hhv9.onrender.com/api/users/update-cart",
         {
           userId: user.id,
           cart: cart,
