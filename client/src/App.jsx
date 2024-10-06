@@ -1,9 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { auth } from "./firebase/firebase";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import { loginUser, setLoading } from "./redux/features/user/userSlice";
 import { Navbar, Footer } from "./components";
 import {
   Home,
@@ -15,29 +12,60 @@ import {
   Search,
 } from "./pages";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function App() {
-  const dispatch = useDispatch();
+  const { user, wishlist, cart } = useSelector((state) => state.user);
+
+  const updateWishlist = async () => {
+    try {
+      const token = localStorage.getItem("authToken");
+      const response = await axios.put(
+        "http://localhost:3000/api/users/update-wishlist",
+        {
+          userId: user.id,
+          wishList: wishlist,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      toast.error("Unable to process. Please try again");
+    }
+  };
+
+  const updateCart = async () => {
+    try {
+      const token = localStorage.getItem("authToken");
+      const response = await axios.put(
+        "http://localhost:3000/api/users/update-cart",
+        {
+          userId: user.id,
+          cart: cart,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      toast.error("Unable to process. Please try again");
+    }
+  };
 
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        dispatch(
-          loginUser({
-            uid: authUser.uid,
-            username: authUser.displayName,
-            email: authUser.email,
-          })
-        );
-        dispatch(setLoading(false));
-      } else {
-        dispatch(setLoading(false));
-      }
-    });
-  }, []);
+    updateWishlist();
+  }, [wishlist]);
 
-  const user = useSelector((state) => state.user.user);
-  const isLoading = useSelector((state) => state.user.isLoading);
+  useEffect(() => {
+    updateCart();
+  }, [cart]);
 
   return (
     <div>

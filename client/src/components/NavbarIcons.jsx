@@ -1,6 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
-import { auth } from "../firebase/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { CiUser, CiShoppingCart } from "react-icons/ci";
@@ -10,6 +8,7 @@ import { openSideBar } from "../redux/features/hamburgerMenu/hamburgerSlice";
 import { useEffect, useState } from "react";
 import { logoutUser } from "../redux/features/user/userSlice";
 import { toast } from "react-toastify";
+import Cookies from "universal-cookie";
 
 const CartModal = () => {
   const { cart } = useSelector((state) => state.user);
@@ -92,6 +91,7 @@ const CartModal = () => {
 const NavbarIcons = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const cookies = new Cookies();
   const { user, cart } = useSelector((state) => state.user);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -122,7 +122,8 @@ const NavbarIcons = () => {
     }
 
     dispatch(logoutUser());
-    signOut(auth);
+    localStorage.setItem("authToken", "");
+    cookies.remove("authToken");
     toast.info("Logged Out");
     setIsProfileOpen(false);
   };

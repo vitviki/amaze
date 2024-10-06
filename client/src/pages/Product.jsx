@@ -51,6 +51,7 @@ const Product = () => {
   const [mainImage, setMainImage] = useState("");
   const [stars, setStars] = useState(0);
   const [size, setSize] = useState("");
+  const [toastMessage, setToastMessage] = useState("");
 
   // Fetch products details.
   const { data: productData, isFetching } =
@@ -69,8 +70,8 @@ const Product = () => {
       descripton: productData?.data.product_description,
       quantity: 1,
     };
-    const cartItems = { [productId]: newCartItem, ...cart };
-    dispatch(setCart(cartItems));
+
+    dispatch(setCart([newCartItem, ...cart]));
   };
 
   const addToWishlist = () => {

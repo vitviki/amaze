@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import productRoute from "./routes/productRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 
 dotenv.config();
 
@@ -26,7 +27,7 @@ app.use(function (req, res, next) {
 
 // Routes
 app.use("/api/products", productRoute);
-
+app.use("/api/users", userRouter);
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URL);

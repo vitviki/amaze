@@ -1,28 +1,61 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import axios from "axios";
 import { toast } from "react-toastify";
+import Cookies from "universal-cookie";
+import { useDispatch } from "react-redux";
+import {
+  loginUser,
+  setLoading,
+  setWishlist,
+  setCart,
+} from "../redux/features/user/userSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const cookies = new Cookies();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate("/");
-        toast.success("Login successful");
-      })
-      .catch((err) => {
-        if (err.message.includes("auth/invalid-credential")) {
-          toast.error("Invalid credentials. Please try again");
-        } else {
-          toast.error(err.message);
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/users/login",
+        {
+          email,
+          password,
         }
-      });
+      );
+
+      if (response.status === 200) {
+        localStorage.setItem("authToken", response.data.token);
+        cookies.set("authToken", response.data.token, { path: "/" });
+
+        // update the user state.
+        dispatch(
+          loginUser({
+            uid: response.data.returnUser.id,
+            username: response.data.returnUser.name,
+            email: response.data.returnUser.email,
+          })
+        );
+        dispatch(setWishlist(response.data.returnUser.wishList));
+        dispatch(setCart(response.data.returnUser.cart));
+        navigate("/");
+        toast.success(`Welcome back, ${response.data.returnUser.name}`);
+        dispatch(setLoading(false));
+      } else {
+        dispatch(setLoading(true));
+      }
+    } catch (err) {
+      if (err.message.includes("invalid")) {
+        toast.error("Invalid email or password. Please try again");
+      } else {
+        toast.error(err.message);
+      }
+    }
   };
 
   return (

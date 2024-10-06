@@ -10,8 +10,6 @@ const Sidebar = () => {
       <div className="list">
         <Link to="/users">Users</Link>
         <Link to="/products">Products</Link>
-        <Link to="/categories">Categories</Link>
-        <Link to="/brands">Brands</Link>
       </div>
       <button className="logout">
         <RiLogoutBoxLine className="logout_button" />

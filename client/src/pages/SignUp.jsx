@@ -1,11 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import { auth } from "../firebase/firebase";
 import { useState } from "react";
+import axios from "axios";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
@@ -13,28 +8,34 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [mobile, setMobile] = useState("");
+  const [number, setNumber] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((authUser) => {
-        toast.success("Signup successful");
-        signInWithEmailAndPassword(auth, email, password).then(() => {
-          updateProfile(auth.currentUser, { displayName: name });
-          navigate("/");
-          toast.info(`Welcome ${name}!`);
-        });
-      })
-      .catch((err) => {
-        if (err.message.includes("email-already-in-use")) {
-          toast.error(
-            "Email already in use. Please try again with a different email address"
-          );
-        } else {
-          toast.error(err.message);
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/users/register",
+        {
+          name,
+          number,
+          email,
+          password,
         }
-      });
+      );
+
+      if (response.status === 200) {
+        toast.success("Signup successful");
+        navigate("/login");
+      }
+    } catch (err) {
+      if (err.message.includes("email-already-in-use")) {
+        toast.error(
+          "Email already in use. Please try again with a different email address"
+        );
+      } else {
+        toast.error(err.message);
+      }
+    }
   };
 
   return (
@@ -58,8 +59,8 @@ const SignUp = () => {
             className="w-full border px-2 py-3 rounded-md"
             placeholder="Mobile number"
             required
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
           />
           <input
             type="email"
