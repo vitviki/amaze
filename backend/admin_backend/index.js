@@ -26,6 +26,9 @@ app.use(function (req, res, next) {
 });
 
 // Routes
+app.get("/", (req, res) => {
+  return res.json({ message: "vercel homepage" });
+});
 app.use("/api/products", productRoute);
 app.use("/api/users", userRouter);
 const connect = async () => {
