@@ -19,7 +19,7 @@ app.use(
 
 // Routes
 app.get("/", (req, res) => {
-  return res.json({ message: "vercel homepage" });
+  return res.json({ message: "Service is running" });
 });
 app.use("/api/products", productRoute);
 app.use("/api/users", userRouter);
