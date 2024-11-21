@@ -17,9 +17,13 @@ const Login = () => {
   const cookies = new Cookies();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [buttonText, setButtonText] = useState("Sign In");
+  const [loginFlag, setLoginFlag] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoginFlag(true);
+    setButtonText("Please wait");
     try {
       const response = await axios.post(
         "https://amaze-hhv9.onrender.com/api/users/login",
@@ -80,8 +84,13 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="w-full rounded-md flex items-center justify-center py-2 bg-yellow-400">
-            Sign In
+          <button
+            className={`w-full rounded-md flex items-center justify-center py-2 ${
+              loginFlag ? "bg-yellow-100" : "bg-yellow-400"
+            }`}
+            disabled={loginFlag}
+          >
+            {buttonText}
           </button>
         </form>
         <hr />
