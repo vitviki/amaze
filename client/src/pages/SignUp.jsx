@@ -9,12 +9,16 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [number, setNumber] = useState("");
+  const [buttonText, setButtonText] = useState("Sign Up");
+  const [signUpFlag, setSignUpFlag] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSignUpFlag(true);
+    setButtonText("Please wait");
     try {
       const response = await axios.post(
-        "https://amaze-hhv9.onrender.com/users/register",
+        "https://amaze-hhv9.onrender.com/api/users/register",
         {
           name,
           number,
@@ -23,11 +27,13 @@ const SignUp = () => {
         }
       );
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         toast.success("Signup successful");
         navigate("/login");
       }
     } catch (err) {
+      setButtonText("Sign Up");
+      setSignUpFlag(false);
       if (err.message.includes("email-already-in-use")) {
         toast.error(
           "Email already in use. Please try again with a different email address"
@@ -82,8 +88,15 @@ const SignUp = () => {
             *To verfiy your number, we will send you a text message with a
             temporary code. Message and data rates may apply.
           </p>
-          <button className="w-full rounded-md flex items-center justify-center py-2 bg-yellow-400">
-            Sign Up
+          <button
+            className={`w-full rounded-md flex items-center justify-center py-2  ${
+              signUpFlag
+                ? "bg-yellow-100 text-gray-700"
+                : "bg-yellow-400 text-black"
+            }`}
+            disabled={signUpFlag}
+          >
+            {buttonText}
           </button>
         </form>
         <hr />

@@ -20,6 +20,7 @@ export default function App() {
   const { user, wishlist, cart } = useSelector((state) => state.user);
 
   const updateWishlist = async () => {
+    if (!user) return;
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.put(
@@ -36,10 +37,14 @@ export default function App() {
       );
     } catch (error) {
       toast.error("Unable to process. Please try again");
+      console.log(error);
     }
   };
 
   const updateCart = async () => {
+    if (!user) {
+      return;
+    }
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.put(
